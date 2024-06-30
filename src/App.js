@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import useLocalStorage from './hooks/useLocalStorage';
+import HomePage from './pages/HomePage';
+import TaskPage from './pages/TaskPage';
+import AboutPage from './pages/AboutPage';
+import Header from './components/Header';
+import GlobalStyle from './styles/GlobalStyle';
+import { lightTheme, darkTheme } from './styles/themes';
 
-function App() {
+const App = () => {
+  const [theme, setTheme] = useLocalStorage('theme', 'light');
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <GlobalStyle />
+      <Router>
+        <Header toggleTheme={toggleTheme} currentTheme={theme} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/tasks" element={<TaskPage />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
