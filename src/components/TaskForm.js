@@ -36,16 +36,16 @@ const TaskForm = ({ onAddTask }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!title.trim() || !description.trim()) return; // Prevent empty submissions
+    if (!title.trim() || !description.trim()) return; 
 
     const newTask = {
-      id: Date.now(), // Generate unique ID (for demo purposes, replace with actual ID generation)
+      id: Date.now(), 
       title,
       description
     };
 
-    onAddTask(newTask); // Pass new task to parent component
-    setTitle(''); // Clear input fields
+    onAddTask(newTask); 
+    setTitle(''); 
     setDescription('');
   };
 

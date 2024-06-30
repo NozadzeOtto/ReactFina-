@@ -1,4 +1,3 @@
-// utils/validationSchema.js
 import * as Yup from 'yup';
 
 const taskSchema = Yup.object().shape({

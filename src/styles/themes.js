@@ -5,7 +5,7 @@ export const lightTheme = {
   buttonBackground: '#007bff',
   buttonText: '#FFF',
   buttonBackgroundHover: '#0056b3',
-  taskBackground: '#f8f9fa' // Example background color for tasks
+  taskBackground: '#f8f9fa' 
 };
 
 export const darkTheme = {
@@ -15,5 +15,5 @@ export const darkTheme = {
   buttonBackground: '#4a4a4a',
   buttonText: '#FAFAFA',
   buttonBackgroundHover: '#6c6c6c',
-  taskBackground: '#4a4a4a' // Example background color for tasks
+  taskBackground: '#4a4a4a' 
 };
